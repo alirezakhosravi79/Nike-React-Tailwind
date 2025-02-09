@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/logo2.png";
 import { Link } from "react-router-dom";
-import { ShoppingCart, User } from "lucide-react";
+import { LogsIcon, Menu, ShoppingCart, User } from "lucide-react";
 
 export const NavbarMenu = [
   {
@@ -32,6 +32,12 @@ export const NavbarMenu = [
 ];
 
 function Navbar() {
+
+  const [showMenu, setShowMenu] = useState(false);
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  }
+
   return (
     <div className="text-black py-8">
       <div className="container flex justify-between items-center">
@@ -68,6 +74,11 @@ function Navbar() {
         <div className="flex gap-8 md:hidden z-50">
           <Link to={'/cart'}><ShoppingCart/></Link> 
           {/* mobile hamberger menu */}
+          {
+            showMenu ? (
+              <Menu onClick={toggleMenu} className="cursor-pointer transition-all md:hidden z-50" size={30}/>
+            ):(<LogsIcon onClick={toggleMenu} className="cursor-pointer transition-all md:hidden z-50" size={30}/>)
+          }
         </div>
       </div>
     </div>
