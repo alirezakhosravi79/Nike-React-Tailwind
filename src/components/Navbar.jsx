@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Logo from "../assets/logo2.png";
 import { Link } from "react-router-dom";
-import { LogsIcon, Menu, ShoppingCart, User } from "lucide-react";
+import { EllipsisVertical, LogsIcon, Menu, ShoppingCart, User } from "lucide-react";
+import ResponsiveMenu from "./ResponsiveMenu";
 
 export const NavbarMenu = [
   {
@@ -71,14 +72,18 @@ function Navbar() {
             </Link>
           </ul>
         </div>
-        <div className="flex gap-8 md:hidden z-50">
+        <div className="flex  gap-8 md:hidden z-50">
           <Link to={'/cart'}><ShoppingCart/></Link> 
           {/* mobile hamberger menu */}
           {
             showMenu ? (
-              <Menu onClick={toggleMenu} className="cursor-pointer transition-all md:hidden z-50" size={30}/>
-            ):(<LogsIcon onClick={toggleMenu} className="cursor-pointer transition-all md:hidden z-50" size={30}/>)
+              <EllipsisVertical onClick={toggleMenu} className="cursor-pointer transition-all md:hidden z-50" size={30}/>
+            ):(<Menu onClick={toggleMenu} className="cursor-pointer transition-all md:hidden z-50" size={30}/>)
           }
+        </div>
+        <div>
+          {/* responsive menu */}
+          <ResponsiveMenu showMenu={showMenu} setShowMenu={setShowMenu}/>
         </div>
       </div>
     </div>
