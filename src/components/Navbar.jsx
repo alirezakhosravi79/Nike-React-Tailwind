@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../assets/logo2.png";
 import { Link } from "react-router-dom";
+import { ShoppingCart, User } from "lucide-react";
 
 export const NavbarMenu = [
   {
@@ -53,7 +54,20 @@ function Navbar() {
                 </li>
               );
             })}
+            <button className="text-xl ps-8">
+              <User />
+            </button>
+
+            <Link>
+              <button className="text-xl ps-14">
+                <ShoppingCart />
+              </button>
+            </Link>
           </ul>
+        </div>
+        <div className="flex gap-8 md:hidden z-50">
+          <Link to={'/cart'}><ShoppingCart/></Link> 
+          {/* mobile hamberger menu */}
         </div>
       </div>
     </div>
