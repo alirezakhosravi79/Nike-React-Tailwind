@@ -59,13 +59,13 @@ function Navbar() {
               return (
                 <li key={index}>
                   <UpdateFollower
-                  mouseOptions={{
-                    backgroundColor: "white",
-                    zIndex: 9999,
-                    followSpeed: 1.5,
-                    scale: 5,
-                    mixBlendMode: "difference"
-                  }}
+                    mouseOptions={{
+                      backgroundColor: "white",
+                      zIndex: 9999,
+                      followSpeed: 1.5,
+                      scale: 5,
+                      mixBlendMode: "difference",
+                    }}
                   >
                     <Link
                       to={item.link}
@@ -77,15 +77,35 @@ function Navbar() {
                 </li>
               );
             })}
-            <button className="text-xl ps-4">
-              <User />
-            </button>
-
-            <Link>
-              <button className="text-xl ps-10">
-                <ShoppingCart />
+            <UpdateFollower
+              mouseOptions={{
+                backgroundColor: "white",
+                zIndex: 9999,
+                followSpeed: 1.5,
+                scale: 5,
+                mixBlendMode: "difference",
+              }}
+            >
+              <button className="text-xl ps-4">
+                <User />
               </button>
-            </Link>
+            </UpdateFollower>
+
+            <UpdateFollower
+              mouseOptions={{
+                backgroundColor: "white",
+                zIndex: 9999,
+                followSpeed: 1.5,
+                scale: 5,
+                mixBlendMode: "difference",
+              }}
+            >
+              <Link>
+                <button className="text-xl ps-10">
+                  <ShoppingCart />
+                </button>
+              </Link>
+            </UpdateFollower>
           </ul>
         </div>
         <div className="flex  gap-8 md:hidden z-50">
